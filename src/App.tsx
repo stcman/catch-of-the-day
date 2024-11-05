@@ -4,7 +4,8 @@ import sampleFishes from './sample-fishes';
 
 import Header from './components/Header';
 import Inventory from './components/Inventory';
-import Fish from './components/FIsh';
+import Fish from './components/Fish';
+import Order from './components/Order';
 
 export type FishType = {
   name: string;
@@ -44,6 +45,11 @@ const addToOrder = (key: number) => {
   if(fish) setOrder([...order, fish]);
 }
 
+const removeFromOrder = (key: number) => {
+  // delete fish
+  setOrder([...fishes.filter((el, idx )=> idx !== key)]);
+}
+
   return (
     <div className="catch-of-the-day">
       <div className="menu">
@@ -52,7 +58,7 @@ const addToOrder = (key: number) => {
               {fishes.map((fish, idx) => <Fish key={fish.name} index={idx} details={fish} addToOrder={addToOrder} />)}
           </ul>
       </div>
-        {/* <Order fishes={this.state.fishes} orders={this.state.order} removeFromOrder={this.removeFromOrder} /> */}
+        <Order fishes={fishes} orders={order} removeFromOrder={removeFromOrder} />
         <Inventory loadSampleFishes={loadSampleFishes} fishes={fishes} updateFish={updateFish} addFish={addFish} deleteFish={deleteFish} />
     </div>
   )
