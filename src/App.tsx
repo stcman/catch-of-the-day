@@ -13,6 +13,7 @@ export type FishType = {
   desc: string;
   price: number;
   status: string;
+  fishId: string;
 };
 
 function App() {
@@ -20,7 +21,13 @@ function App() {
   const [order, setOrder] = useState<FishType[]>([]);
 
   const loadSampleFishes = () => {
-    setFishes(sampleFishes);
+    const sFishes: FishType[] = structuredClone(sampleFishes);
+    
+    sFishes.forEach(fish => {
+      let uid = Date.now().toString(36) + Math.random().toString(36).substr(2);
+      fish.fishId = uid;
+    });
+    setFishes(sFishes);
   }
 
   const addFish = (newFish: FishType)  => {
@@ -45,7 +52,7 @@ const addToOrder = (key: number) => {
   if(fish) setOrder([...order, fish]);
 }
 
-const removeFromOrder = (key: number) => {
+const removeFromOrder = (key: string) => {
   // delete fish
   setOrder([...fishes.filter((el, idx )=> idx !== key)]);
 }
