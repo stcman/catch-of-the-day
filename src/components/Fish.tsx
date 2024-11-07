@@ -19,13 +19,19 @@ const Fish = (props: Props) => {
 
   return (
     <li className="menu-fish">
-      <img src={image} alt={name} />
-      <h3 className="fish-name">
-      {name}
-      <span className="price">{formatPrice(price)}</span>
-      </h3>
-      <p>{desc}</p>
-      <button onClick={handleClick} disabled={!isAvailable}>{isAvailable ? 'Add to Order': 'Sold Out!'}</button>
+      <div className="top">
+        <img src={image} alt={name} />
+        <h3 className="fish-name">
+        {name}
+        </h3>
+      </div>
+      <div className="middle">
+        <p className='fish-desc'>{desc}</p>
+      </div>
+      <div className="bottom">
+        <p className="price">{formatPrice(price)}</p>
+        <button onClick={handleClick} disabled={!isAvailable}>{isAvailable ? 'Add to Order': 'Sold Out!'}</button>
+      </div>
     </li>   
   )
 }

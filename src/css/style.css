@@ -258,7 +258,13 @@ h3 {
 }
 header.top {
   text-align: center;
+  position: sticky;
 }
+
+.inventory h2 {
+  position: sticky;
+}
+
 header.top h1 {
   font-size: 14.4rem;
   line-height: 0.7;
@@ -337,8 +343,22 @@ header.top h3:after {
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   box-shadow: 0 5px 5px rgba(0,0,0,0.1);
-  overflow: scroll;
 }
+
+.menu-container {
+  position: relative;
+  overflow-y: scroll;
+  height: calc(100% - 160px) !important;
+  margin-top: 20px;
+}
+
+.inventory-container {
+  position: relative;
+  overflow-y: scroll;
+  height: calc(100% - 70px) !important;
+  margin-top: 20px;
+}
+
 .catch-of-the-day > *:first-child {
   flex-shrink: 1;
   flex-basis: 50%;
@@ -355,8 +375,8 @@ header.top h3:after {
 .catch-of-the-day > *:last-child {
   flex-shrink: 1;
   flex-basis: 50%;
-  -webkit-transform: translateX(-50%) rotateY(10deg) translateX(50%) scale(1.08) translateX(24px);
-          transform: translateX(-50%) rotateY(10deg) translateX(50%) scale(1.08) translateX(24px);
+  -webkit-transform: translateX(-51%) rotateY(10deg) translateX(50%) scale(1.08) translateX(24px);
+          transform: translateX(-49%) rotateY(10deg) translateX(48%) scale(1.08) translateX(24px);
 }
 input#fold:not(:checked) ~ #main .catch-of-the-day > * {
   -webkit-transform: none;
@@ -489,7 +509,23 @@ ul.order li span.count span {
   margin-bottom: 5px;
   clear: both;
   overflow: hidden;
+  display: grid;
+  gap: 10px;
 }
+
+.menu-fish .top {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.menu-fish .bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
 .menu-fish p {
   margin: 0;
   font-size: 1.8rem;
@@ -499,19 +535,27 @@ ul.order li span.count span {
   display: -webkit-box;
   display: flex;
   -webkit-box-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
+  text-align: left;
+
 }
+
 .menu-fish .price {
   font-size: 1.4rem;
   -webkit-box-pack: end;
-          justify-content: flex-end;
+  justify-content: flex-end;
+  font-weight: 700;
 }
+
+.menu-fish .fish-desc {
+  text-align: left;
+}
+
 .menu-fish img {
   float: left;
   width: 150px;
-  margin-right: 1rem;
 }
 button,
 input[type=submit] {
@@ -531,8 +575,8 @@ input[type=submit][disabled] {
   color: #d12028;
   background: #fff;
   border-color: #d12028;
-  -webkit-transform: rotate(-10deg) scale(2) translateX(50%) translateY(-50%);
-          transform: rotate(-10deg) scale(2) translateX(50%) translateY(-50%);
+  -webkit-transform: rotate(-10deg) scale(2) translateX(-34%) translateY(-88%);
+          transform: rotate(-10deg) scale(2) translateX(-34%) translateY(-88%);
 }
 button[disabled]:hover,
 input[type=submit][disabled]:hover {

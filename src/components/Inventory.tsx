@@ -18,9 +18,11 @@ const Inventory = (props: Props) => {
     <div className="inventory">
       <h2>Inventory</h2>
       {/* {logout} */}
-      {fishes.map((fish, idx) => <EditFishForm key={fish.name} index={idx} fish={fish} updateFish={updateFish} deleteFish={deleteFish} />)}
-      <AddFishForm addFish={addFish} loadSampleFishes={loadSampleFishes}/>
-      <button onClick={()=> loadSampleFishes()}>Load Sample Fishes</button>
+      <div className="inventory-container">
+        {fishes.map((fish, idx) => <EditFishForm key={fish.name} index={idx} fish={fish} updateFish={updateFish} deleteFish={deleteFish} />)}
+        <AddFishForm addFish={addFish} loadSampleFishes={loadSampleFishes}/>
+        <button onClick={()=> loadSampleFishes()}>Load Sample Fishes</button>
+      </div>
     </div>
   )
 }

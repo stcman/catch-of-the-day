@@ -61,9 +61,11 @@ const removeFromOrder = (key: string) => {
     <div className="catch-of-the-day">
       <div className="menu">
           <Header tagline= "Fresh Seafood Market"/>
-          <ul className="fishes">
-              {fishes.map((fish, idx) => <Fish key={fish.name} index={idx} details={fish} addToOrder={addToOrder} />)}
-          </ul>
+          <div className="menu-container">
+            <ul className="fishes">
+                {fishes.map((fish, idx) => <Fish key={fish.name} index={idx} details={fish} addToOrder={addToOrder} />)}
+            </ul>
+          </div>
       </div>
         <Order fishes={fishes} orders={order} removeFromOrder={removeFromOrder} />
         <Inventory loadSampleFishes={loadSampleFishes} fishes={fishes} updateFish={updateFish} addFish={addFish} deleteFish={deleteFish} />
